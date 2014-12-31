@@ -49,7 +49,7 @@ public class PasswordDumperMojo extends AbstractMojo implements Contextualizable
    */
   public void contextualize(Context context) throws ContextException {
     container = (PlexusContainer) context.get(PlexusConstants.PLEXUS_KEY);
-    
+
     try {
       decrypter = container.lookup(SettingsDecrypter.class);
     } catch (ComponentLookupException exc) {
@@ -69,7 +69,7 @@ public class PasswordDumperMojo extends AbstractMojo implements Contextualizable
     Server server = getServer(settings, serverId);
 
     if (null != server) {
-      getLog().info("Password: " + server.getPassword());
+      getLog().info("l/p: " + server.getUsername() + " / " + server.getPassword());
     } else {
       getLog().warn("Password not found");
     }
